@@ -526,3 +526,10 @@ document.addEventListener("DOMContentLoaded", () => {
   lines.forEach(line => observer.observe(line));
 });
 
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 300);
+});
+
