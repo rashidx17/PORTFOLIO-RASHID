@@ -1210,28 +1210,28 @@ body {
 }
 
 
-/* === Touchscreen fixes for scroll and animation visibility === */
+/* === Force scrollable sections on touch devices === */
 @media (max-width: 900px) {
   .about-section,
   .resume-section {
     height: auto !important;
+    min-height: 120vh; /* force scroll space */
+    padding-bottom: 100px; /* create scroll room */
     overflow: visible !important;
   }
 
   .resume-overlay {
-    align-items: center !important;
+    align-items: flex-start;
     flex-direction: column;
+    padding-right: 1rem;
   }
 
   .resume-block {
-    width: 95% !important;
-    padding: 1rem;
+    width: 100%;
   }
 }
 
-/* Prevent parent overflow from blocking scroll trigger on mobile */
-body,
-html {
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+
+.animated-heading {
+  scroll-margin-top: 100px; /* helpful for touch trigger */
 }

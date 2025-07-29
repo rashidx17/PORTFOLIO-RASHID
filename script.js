@@ -161,6 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power2.out",
     stagger: 0.3
   });
+
+  
 });
 
 
@@ -527,17 +529,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ✅ FIX: Ensure ScrollTrigger refreshes correctly on mobile
-window.addEventListener("load", () => {
-  ScrollTrigger.refresh();
-});
+// === Force ScrollTrigger Refresh ===
+function triggerRefresh() {
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 500); // wait for layout
+}
 
-window.addEventListener("orientationchange", () => {
-  ScrollTrigger.refresh(true);
+window.addEventListener("load", triggerRefresh);
+window.addEventListener("resize", triggerRefresh);
+window.addEventListener("orientationchange", triggerRefresh);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") triggerRefresh();
 });
-
-// ✅ Improve ScrollTrigger for touch devices
-ScrollTrigger.config({
-  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize"
-});
-
