@@ -144,14 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// === 5. Scroll-Reveal for About Section Paragraphs ===
+// === 5. Reliable Scroll-Reveal for About Section ===
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.from(".about-text p", {
     scrollTrigger: {
-      trigger: ".about-text",
-      start: "top 85%",
+      trigger: ".about-section", // 👈 Trigger earlier
+      start: "top 85%",           // 👈 Triggers sooner
+      end: "bottom 60%",          // 👈 Wider range to catch mobile scrolls
       toggleActions: "play none none reverse"
     },
     y: 30,
@@ -162,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
     stagger: 0.3
   });
 });
+
 
 
 // === 6. Bounce Functions ===
@@ -524,12 +526,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   lines.forEach(line => observer.observe(line));
-});
-
-
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 300);
 });
 
