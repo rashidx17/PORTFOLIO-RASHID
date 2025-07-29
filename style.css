@@ -1208,3 +1208,30 @@ body {
     font-size: 1rem;
   }
 }
+
+
+/* === Touchscreen fixes for scroll and animation visibility === */
+@media (max-width: 900px) {
+  .about-section,
+  .resume-section {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .resume-overlay {
+    align-items: center !important;
+    flex-direction: column;
+  }
+
+  .resume-block {
+    width: 95% !important;
+    padding: 1rem;
+  }
+}
+
+/* Prevent parent overflow from blocking scroll trigger on mobile */
+body,
+html {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}

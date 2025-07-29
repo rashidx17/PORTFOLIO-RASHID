@@ -526,3 +526,18 @@ document.addEventListener("DOMContentLoaded", () => {
   lines.forEach(line => observer.observe(line));
 });
 
+
+// ✅ FIX: Ensure ScrollTrigger refreshes correctly on mobile
+window.addEventListener("load", () => {
+  ScrollTrigger.refresh();
+});
+
+window.addEventListener("orientationchange", () => {
+  ScrollTrigger.refresh(true);
+});
+
+// ✅ Improve ScrollTrigger for touch devices
+ScrollTrigger.config({
+  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize"
+});
+
