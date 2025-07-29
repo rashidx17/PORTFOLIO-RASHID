@@ -1068,10 +1068,9 @@ body {
 }
 
 
-/* === THIRD PAGE (Resume Section) RESPONSIVE === */
+/* RESPONSIVE FOR 3 PAGE  */
 
-/* 1024px */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .resume-section {
     flex-direction: column;
     height: auto;
@@ -1089,18 +1088,29 @@ body {
   }
 
   .resume-block {
-    width: 90%;
-    padding: 1.5rem;
+    width: 50%;
+    padding: 0.8rem;
+    margin-left: auto;
   }
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
   .resume-grid {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
+}
+/* 1024px */
+@media (max-width: 1024px) {
+  .resume-card {
+    font-size: 0.8rem;
+  }
+
+  .row {
+  font-size: 0.8rem;
+}
 }
 
 /* 900px */
@@ -1115,7 +1125,9 @@ body {
   }
 
   .resume-block {
-    width: 95%;
+    width: 50%;
+    padding: 1.5rem;
+    margin: auto;
   }
 
   .section-title {
@@ -1126,54 +1138,3 @@ body {
     font-size: 0.95rem;
   }
 }
-
-/* 768px */
-@media (max-width: 768px) {
-  .resume-section {
-    height: auto;
-    flex-direction: column;
-    padding: 30px 15px;
-  }
-
-  .resume-bg {
-    object-fit: cover;
-  }
-
-  .resume-overlay {
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-  }
-
-  .resume-block {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .resume-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-  }
-
-  .row {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .column p {
-    font-size: 0.95rem;
-  }
-
-  .entry-text p {
-    font-size: 0.9rem;
-  }
-}
-
-
-/* === THIRD PAGE RESPONSIVE: Resume Section === */
-

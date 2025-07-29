@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.from(".about-text p", {
     scrollTrigger: {
       trigger: ".about-text",
-      start: "top 90%",
+      start: "top 65%",
       toggleActions: "play none none reverse"
     },
     y: 30,
