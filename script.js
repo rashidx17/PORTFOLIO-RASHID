@@ -144,37 +144,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// === 5. Scroll-Reveal for About Section Paragraphs (Fixed for all screens) ===
+// === 5. Scroll-Reveal for About Section Paragraphs ===
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  const paragraphs = document.querySelectorAll(".about-text p");
-
-  if (window.innerWidth > 800) {
-    // Animate for larger screens
-    gsap.from(paragraphs, {
-      scrollTrigger: {
-        trigger: ".about-section",
-        start: "top 90%",
-        toggleActions: "play none none reverse"
-      },
-      y: 30,
-      opacity: 0,
-      filter: "blur(10px)",
-      duration: 1,
-      ease: "power2.out",
-      stagger: 0.3
-    });
-  } else {
-    // Just make them visible instantly on small screens
-    paragraphs.forEach(p => {
-      p.style.opacity = "1";
-      p.style.filter = "none";
-      p.style.transform = "translateY(0)";
-    });
-  }
+  gsap.from(".about-text p", {
+    scrollTrigger: {
+      trigger: ".about-text",
+      start: "top 65%",
+      toggleActions: "play none none reverse"
+    },
+    y: 30,
+    opacity: 0,
+    filter: "blur(10px)",
+    duration: 1,
+    ease: "power2.out",
+    stagger: 0.3
+  });
 });
-
 
 
 // === 6. Bounce Functions ===
@@ -539,9 +526,3 @@ document.addEventListener("DOMContentLoaded", () => {
   lines.forEach(line => observer.observe(line));
 });
 
-// Always refresh after load to fix layout shift bugs
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    ScrollTrigger.refresh(true);
-  }, 500);
-});
