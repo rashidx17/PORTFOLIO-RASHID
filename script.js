@@ -389,3 +389,4 @@ window.addEventListener("load", () => {
     applyDark(!isDark);
   });
 })();
+
