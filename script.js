@@ -86,45 +86,44 @@ document.addEventListener("DOMContentLoaded", () => {
     loopRoles();
   }
 
-  // === Scroll-Reveal Animated Headings (keep this ScrollTrigger)
- document.querySelectorAll(".animated-heading").forEach((el) => {
-  const text = el.textContent;
-  el.textContent = "";
-  const spans = text.split("").map((char) => {
-    const span = document.createElement("span");
-    span.textContent = char;
-    span.style.opacity = "0";
-    span.style.display = "inline-block";
-    span.style.transform = "translateY(20px)";
-    el.appendChild(span);
-    return span;
+  // === Scroll-Reveal Animated Headings ===
+  document.querySelectorAll(".animated-heading").forEach((el) => {
+    const text = el.textContent;
+    el.textContent = "";
+    const spans = text.split("").map((char) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.style.opacity = "0";
+      span.style.display = "inline-block";
+      span.style.transform = "translateY(20px)";
+      el.appendChild(span);
+      return span;
+    });
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          gsap.to(spans, {
+            y: 0,
+            opacity: 1,
+            ease: "power2.out",
+            stagger: 0.09,
+            duration: 0.9,
+            onComplete: () => {
+              spans.forEach((span) =>
+                span.classList.add("float-up-down")
+              );
+            },
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(el);
   });
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        gsap.to(spans, {
-          y: 0,
-          opacity: 1,
-          ease: "power2.out",
-          stagger: 0.09,
-          duration: 0.9,
-          onComplete: () => {
-            spans.forEach((span) =>
-              span.classList.add("float-up-down")
-            );
-          },
-        });
-        obs.unobserve(entry.target); // run once
-      }
-    });
-  }, { threshold: 0.5 });
-
-  observer.observe(el);
-});
-
-
-  // === Reusable IntersectionObserver Fade-In Once Function
+  // === Reusable IntersectionObserver Fade-In Once Function ===
   const fadeInOnce = (selector) => {
     document.querySelectorAll(selector).forEach((el) => {
       gsap.set(el, { y: 30, opacity: 0, filter: "blur(10px)" });
@@ -148,7 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // === Apply to All Blur Sections (no re-triggers)
   fadeInOnce(".about-image");
   fadeInOnce(".page4-description");
   fadeInOnce(".page4-tags");
@@ -166,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fadeInOnce(".page6-tags");
   fadeInOnce(".contact-content");
 
-  // === Resume Divider Animation (keep this GSAP)
+  // === Resume Divider Animation ===
   gsap.to(".vertical-divider", {
     scrollTrigger: {
       trigger: ".vertical-divider",
@@ -179,8 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power2.out",
   });
 
-
-  // === Resume Button Hover Effects (unchanged)
+  // === Resume Button Hover Effects ===
   document.querySelectorAll(".resume-btn").forEach((btn) => {
     gsap.to(btn, {
       boxShadow: "0 0 30px rgba(214, 63, 47, 0.3)",
@@ -212,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // === Floating Stickers + Intro
+  // === Floating Stickers + Intro ===
   const stickers = ["#icon-headphones", "#icon-tablet", "#icon-gamepad"];
   const floatOffsets = [-5, 6, -4];
   const intro = gsap.timeline();
@@ -235,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// === Bouncing Portfolio Heading (unchanged)
+// === Bouncing Portfolio Heading ===
 function startBounceHigh(spans) {
   const isMobile = window.matchMedia("(max-width: 899px)").matches;
   const bounceHeight = isMobile ? 5 : 20;
@@ -259,72 +256,64 @@ function startBounceHigh(spans) {
 }
 
 if (window.matchMedia('(pointer: fine)').matches) {
-// === Custom Cursor (unchanged)
-const cursor = document.createElement("div");
-cursor.classList.add("custom-cursor");
-document.body.appendChild(cursor);
+  // === Custom Cursor ===
+  const cursor = document.createElement("div");
+  cursor.classList.add("custom-cursor");
+  document.body.appendChild(cursor);
 
-let lastX = 0, lastY = 0, currentX = 0, currentY = 0;
-const followEase = 0.12, maxStretch = 0.35;
+  let lastX = 0, lastY = 0, currentX = 0, currentY = 0;
+  const followEase = 0.12, maxStretch = 0.35;
 
-function animateCursor() {
-  lastX += (currentX - lastX) * followEase;
-  lastY += (currentY - lastY) * followEase;
-  const dx = currentX - lastX, dy = currentY - lastY;
-  const dist = Math.sqrt(dx * dx + dy * dy);
-  const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-  const stretch = 1 + Math.min(dist / 60, maxStretch);
-  cursor.style.transform = `translate(${lastX - 6}px, ${lastY - 6}px) rotate(${angle}deg) scale(${stretch}, ${1 / stretch})`;
-  requestAnimationFrame(animateCursor);
-}
-document.addEventListener("mousemove", (e) => {
-  currentX = e.clientX;
-  currentY = e.clientY;
-});
-animateCursor();
-
-document.addEventListener("mouseover", (e) => {
-  const tag = e.target.tagName;
-  if (["A", "P", "SPAN", "H1", "H2", "H3"].includes(tag)) {
-    cursor.classList.add("hovering");
+  function animateCursor() {
+    lastX += (currentX - lastX) * followEase;
+    lastY += (currentY - lastY) * followEase;
+    const dx = currentX - lastX, dy = currentY - lastY;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+    const stretch = 1 + Math.min(dist / 60, maxStretch);
+    cursor.style.transform = `translate(${lastX - 6}px, ${lastY - 6}px) rotate(${angle}deg) scale(${stretch}, ${1 / stretch})`;
+    requestAnimationFrame(animateCursor);
   }
-});
-document.addEventListener("mouseout", () => cursor.classList.remove("hovering"));
-
-
-
-
-
-
-
-  
-}
-// === Circle viewport reveal ===
-  const circleSelectors = [
-    ".page4-semicircle",
-    ".page4-small-circle",
-    ".page6-semicircle",
-    ".page6-small-circle",
-  ];
-
-  const circles = document.querySelectorAll(circleSelectors.join(","));
-
-  const circleObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("inview");
-      }
-    });
-  }, { threshold: 0.2 });
-
-  circles.forEach(el => {
-    el.classList.add("circle-reveal");
-    circleObserver.observe(el);
+  document.addEventListener("mousemove", (e) => {
+    currentX = e.clientX;
+    currentY = e.clientY;
   });
+  animateCursor();
 
+  document.addEventListener("mouseover", (e) => {
+    const tag = e.target.tagName;
+    if (["A", "P", "SPAN", "H1", "H2", "H3"].includes(tag)) {
+      cursor.classList.add("hovering");
+    }
+  });
+  document.addEventListener("mouseout", () => cursor.classList.remove("hovering"));
+}
 
+// === Circle viewport reveal ===
+const circleSelectors = [
+  ".page4-semicircle",
+  ".page4-small-circle",
+  ".page6-semicircle",
+  ".page6-small-circle",
+];
 
-  document.addEventListener("DOMContentLoaded", () => {
+const circles = document.querySelectorAll(circleSelectors.join(","));
+
+const circleObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("inview");
+    }
+  });
+}, { threshold: 0.2 });
+
+circles.forEach(el => {
+  el.classList.add("circle-reveal");
+  circleObserver.observe(el);
+});
+
+// === Contact Form Submit ===
+document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector('.contact-form');
 
   if (form) {
@@ -352,8 +341,7 @@ document.addEventListener("mouseout", () => cursor.classList.remove("hovering"))
   }
 });
 
-
-//preloader
+// === Preloader ===
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   if (preloader) {
@@ -362,41 +350,42 @@ window.addEventListener("load", () => {
   }
 });
 
-
-// === Dark mode toggle - safe init (paste INSIDE your DOMContentLoaded handler) ===
+// === Dark Mode Toggle (Updated) ===
 (function initDarkToggle() {
-  const toggleBtn = document.getElementById('darkToggle') || document.querySelector('.dark-toggle');
-  const themeIcon = document.getElementById('theme-icon');
+  if (window.matchMedia("(max-width: 899px)").matches) {
+    // Force light mode on mobile
+    document.documentElement.classList.remove('dark');
+    document.body.classList.remove('dark');
+    const toggleBtn = document.getElementById('darkToggle');
+    if (toggleBtn) toggleBtn.style.display = 'none';
+    return;
+  }
 
-  if (!toggleBtn || !themeIcon) return; // nothing to do if element missing
+  const toggleBtn = document.getElementById('darkToggle');
+  const themeIcon = document.getElementById('theme-icon');
+  if (!toggleBtn || !themeIcon) return;
 
   function applyDark(isDark) {
     if (isDark) {
       document.documentElement.classList.add('dark');
       document.body.classList.add('dark');
-      themeIcon.classList.remove('ri-moon-line');
-      themeIcon.classList.add('ri-sun-line');
+      themeIcon.classList.replace('ri-moon-line', 'ri-sun-line');
       localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
       document.body.classList.remove('dark');
-      themeIcon.classList.remove('ri-sun-line');
-      themeIcon.classList.add('ri-moon-line');
+      themeIcon.classList.replace('ri-sun-line', 'ri-moon-line');
       localStorage.setItem('theme', 'light');
     }
   }
 
-  // init from saved preference or system preference
+  // Always start in light mode unless user chose dark before
   const saved = localStorage.getItem('theme');
   if (saved === 'dark') applyDark(true);
-  else if (saved === 'light') applyDark(false);
-  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) applyDark(true);
+  else applyDark(false);
 
-  // click + keyboard access
-  toggleBtn.addEventListener('click', () => applyDark(!document.body.classList.contains('dark')));
-  toggleBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); applyDark(!document.body.classList.contains('dark')); }
+  toggleBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    applyDark(!isDark);
   });
 })();
-
-
