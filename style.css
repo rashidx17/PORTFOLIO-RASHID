@@ -2040,13 +2040,12 @@ section,
     height: 100vh !important;
   }
 
-  /* hide only this contact background (left image) */
   .contact-section .background {
     display: none !important;
   }
 }
 
-/* Also apply rule for 900px to be safe */
+
 @media (max-width: 900px) {
   .contact-section .content {
     display: flex !important;
@@ -2059,10 +2058,6 @@ section,
     display: none !important;
   }
 }
-
-/* ========================= */
-/* Responsive breakpoints (match page 1) */
-/* ========================= */
 
 @media (max-width: 1400px) {
   .contact-heading { font-size: 3.5rem; }
@@ -2150,3 +2145,214 @@ section,
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+
+/* === Dark Mode Toggle Button === */
+.dark-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  font-size: 1.9rem;
+  cursor: pointer;
+  z-index: 10050;
+  color: #000;               /* icon color in light mode */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+.dark-toggle:active { transform: scale(0.97); }
+
+/* dark toggle appearance when body/html has dark class */
+html.dark .dark-toggle,
+body.dark .dark-toggle {
+  color: #fff;
+  background: #292929;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* === Dark mode global overrides (only for sections that used #fffaf0) === */
+html.dark .background,
+body.dark .background,
+html.dark .about-section,
+body.dark .about-section,
+html.dark .resume-section,
+body.dark .resume-section,
+html.dark .page4-container,
+body.dark .page4-container,
+html.dark .wrapper-container,
+body.dark .wrapper-container,
+html.dark .page6-container,
+body.dark .page6-container,
+html.dark .mobile-hero,
+body.dark .mobile-hero {
+  background-color: #292929 !important;
+  color: #fff !important;
+}
+
+/* Force Rashid + role text to white in dark mode (desktop + mobile) */
+/* Covers the paragraph and any nested spans/role text elements */
+html.dark .text-box p,
+body.dark .text-box p,
+html.dark .text-box p * ,
+body.dark .text-box p * ,
+html.dark .center-text p,
+body.dark .center-text p,
+html.dark .center-text p *,
+body.dark .center-text p * ,
+html.dark .mobile-role-line,
+body.dark .mobile-role-line,
+html.dark .name-fixed,
+body.dark .name-fixed,
+html.dark #role-text-mobile,
+body.dark #role-text-mobile,
+html.dark #role-text-desktop,
+body.dark #role-text-desktop {
+  color: #ffffff !important;
+}
+
+/* If custom cursor exists, make it visible in dark mode */
+html.dark .custom-cursor,
+body.dark .custom-cursor {
+  background-color: #fff !important;
+  border-color: #fff !important;
+}
+
+/* small contrast tweaks for buttons/links */
+html.dark .resume-btn,
+body.dark .resume-btn {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+html.dark .social-link, body.dark .social-link { color: #fff !important; }
+
+
+/* === Dark Mode Text Overrides === */
+body.dark,
+html.dark {
+  color: #fff !important;
+}
+
+/* Page 4 */
+body.dark .page4-description,
+html.dark .page4-description,
+body.dark .page4-tag,
+html.dark .page4-tag {
+  color: #fff !important;
+  border-color: #fff !important; /* for tags border */
+  background-color: transparent !important;
+}
+
+/* Page 5 */
+body.dark .project-summary,
+html.dark .project-summary,
+body.dark .skill-chip,
+html.dark .skill-chip {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+/* Page 6 */
+body.dark .page6-description,
+html.dark .page6-description,
+body.dark .page6-tag,
+html.dark .page6-tag {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+/* Resume cards */
+body.dark .resume-card,
+html.dark .resume-card,
+body.dark .entry-text p,
+html.dark .entry-text p {
+  color: #fff !important;
+}
+
+/* General paragraphs */
+body.dark p,
+html.dark p {
+  color: #fff !important;
+}
+
+
+/* === Dark Mode Line/Divider Overrides === */
+
+/* Resume section divider lines */
+body.dark .section-divider,
+html.dark .section-divider,
+body.dark .vertical-divider,
+html.dark .vertical-divider {
+  border-color: #fff !important;
+  background-color: #fff !important;
+}
+
+/* Page 4 horizontal lines */
+body.dark .page4-line-top,
+html.dark .page4-line-top,
+body.dark .page4-line-bottom,
+html.dark .page4-line-bottom {
+  background-color: #fff !important;
+}
+
+/* Page 5 dividers */
+body.dark .divider-top,
+html.dark .divider-top,
+body.dark .divider-bottom,
+html.dark .divider-bottom,
+body.dark .animate-line,
+html.dark .animate-line {
+  background-color: #fff !important;
+  border-color: #fff !important;
+}
+
+/* Page 6 horizontal lines */
+body.dark .page6-line-top,
+html.dark .page6-line-top,
+body.dark .page6-line-bottom,
+html.dark .page6-line-bottom {
+  background-color: #fff !important;
+}
+
+
+/* === Dark Mode Specific Fixes for Resume (Page 3) === */
+
+/* Keep headings red */
+body.dark .resume-section .section-title,
+html.dark .resume-section .section-title,
+body.dark .resume-section .entry-text .highlight,
+html.dark .resume-section .entry-text .highlight {
+  color: #d63f2f !important;
+}
+
+/* Diamond (✦) icons should become white */
+body.dark .resume-section .icon,
+html.dark .resume-section .icon {
+  color: #fff !important;
+}
+
+
+/* === Dark Mode Resume Buttons (red border stays red) === */
+body.dark .resume-btn,
+html.dark .resume-btn {
+  color: #fff !important;              /* button text white */
+  border-color: #d63f2f !important;    /* keep red border */
+}
+
+/* === Dark Mode Contact Section (force all text white) === */
+body.dark .contact-section,
+html.dark .contact-section {
+  color: #fff !important;
+}
+
+body.dark .contact-section *,
+html.dark .contact-section * {
+  color: #fff !important;
+  border-color: #fff !important; /* in case of underlines/borders */
+}
+

@@ -361,3 +361,42 @@ window.addEventListener("load", () => {
     setTimeout(() => preloader.remove(), 500);
   }
 });
+
+
+// === Dark mode toggle - safe init (paste INSIDE your DOMContentLoaded handler) ===
+(function initDarkToggle() {
+  const toggleBtn = document.getElementById('darkToggle') || document.querySelector('.dark-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+
+  if (!toggleBtn || !themeIcon) return; // nothing to do if element missing
+
+  function applyDark(isDark) {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      document.body.classList.add('dark');
+      themeIcon.classList.remove('ri-moon-line');
+      themeIcon.classList.add('ri-sun-line');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.body.classList.remove('dark');
+      themeIcon.classList.remove('ri-sun-line');
+      themeIcon.classList.add('ri-moon-line');
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  // init from saved preference or system preference
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') applyDark(true);
+  else if (saved === 'light') applyDark(false);
+  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) applyDark(true);
+
+  // click + keyboard access
+  toggleBtn.addEventListener('click', () => applyDark(!document.body.classList.contains('dark')));
+  toggleBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); applyDark(!document.body.classList.contains('dark')); }
+  });
+})();
+
+
