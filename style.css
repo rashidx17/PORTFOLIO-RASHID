@@ -106,10 +106,10 @@ body {
 }
 
 .text-box h1 {
-  font-family: 'Mondia', serif;
+  font-family: 'BINGO', sans-serif;
   font-size: 10rem;
   line-height: 7rem;
-  font-weight: 2000;
+  font-weight: 100;
 }
 
 
@@ -994,7 +994,8 @@ body {
   }
 
   .center-text h1 {
-    font-family: 'Mondia', serif;
+    font-family: 'BINGO', sans-serif;
+    font-weight: 100;                                            
     font-size: 5rem;
     color: #d63f2f;
     line-height: 1;
@@ -1111,6 +1112,12 @@ body {
 
     .top-right-icons img {
       width: 32px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .center-text h1 {
+      font-size: 3.5rem;
     }
   }
 
@@ -1983,7 +1990,7 @@ body {
 
 /* Headings */
 .contact-heading {
-  font-family: 'Mondia', serif;
+  font-family: 'Japers', serif;
   font-size: 4rem;
   color: #d63f2f;
   margin-bottom: 14px;
