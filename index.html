@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Rashid</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- in <head> (add) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
+    />
+
+    <link rel="preload" as="image" href="resources/main bg.png" />
+  </head>
+  <body>
+    <!-- Dark Mode Toggle (place right after <body>) -->
+    <div
+      id="darkToggle"
+      class="dark-toggle"
+      role="button"
+      aria-label="Toggle dark mode"
+      tabindex="0"
+    >
+      <i id="theme-icon" class="ri-moon-line" aria-hidden="true"></i>
+    </div>
+
+    <div id="preloader">
+      <div class="loader"></div>
+      <p>Loading resources...</p>
+    </div>
+
+    <div id="main" data-scroll-container>
+      <!-- First Page -->
+      <div class="background">
+        <img src="resources/main bg.png" alt="Main Background" />
+      </div>
+      <div class="content">
+        <div class="text-box">
+          <h1 class="typing-gsap" id="typed-text-desktop">portfolio</h1>
+          <p>Rashid | <span id="role-text-desktop"></span></p>
+        </div>
+      </div>
+      <!-- Mobile First Page (Visible below 900px only) -->
+      <div class="mobile-hero">
+        <img
+          src="resources/tr 1 page.png"
+          class="top-wave"
+          alt="Top Left Wave"
+        />
+
+        <div class="center-text">
+          <h1 class="typing-gsap" id="typed-text-mobile">portfolio</h1>
+          <p class="mobile-role-line">
+            <span class="name-fixed">Rashid</span> |
+            <span id="role-text-mobile"></span>
+          </p>
+        </div>
+
+        <video
+          preload="auto"
+          class="boy-video"
+          src="resources/boii.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
+
+        <div class="top-right-icons">
+          <img
+            id="icon-headphones"
+            class="sticker-icon"
+            src="resources/headphones.png"
+            alt="Headphones"
+          />
+          <img
+            id="icon-tablet"
+            class="sticker-icon"
+            src="resources/mobile.png"
+            alt="Tablet"
+          />
+          <img
+            id="icon-gamepad"
+            class="sticker-icon"
+            src="resources/game.png"
+            alt="Game Controller"
+          />
+        </div>
+
+        <img
+          src="resources/bl 1 page.png"
+          class="bottom-wave"
+          alt="Bottom Right Wave"
+        />
+      </div>
+
+      <!-- Second Page -->
+      <section class="about-section">
+        <img
+          src="resources/main bg 2.png"
+          class="about-img"
+          alt="About Image"
+        />
+        <div class="about-text-container">
+          <div class="about-text">
+            <h2 class="animated-heading">Hello!</h2>
+            <p>
+              I'm <span>Rashid,</span> passionate and self-taught frontend
+              developer and visual creator based in India, driven by the goal of
+              building clean, engaging, and user-friendly digital experiences.
+            </p>
+            <p>
+              I consider myself a detail-oriented, hardworking person who's
+              willing to learn at every step of the way.
+            </p>
+            <!-- Social links  -->
+            <div class="contact-links">
+              <p>
+                <i class="ri-mail-fill"></i>
+                <a
+                  class="social-link"
+                  href="mailto:17rashidx@gmail.com"
+                  target="_blank"
+                  >17rashidx@gmail.com</a
+                >
+              </p>
+              <p>
+                <i class="ri-instagram-fill"></i>
+                <a
+                  class="social-link"
+                  href="https://instagram.com/17__rashid"
+                  target="_blank"
+                  >instagram.com/rashidx17</a
+                >
+              </p>
+              <p>
+                <i class="ri-linkedin-box-fill"></i>
+                <a
+                  class="social-link"
+                  href="https://linkedin.com/in/rashidx17"
+                  target="_blank"
+                  >linkedin.com/in/rashidx17</a
+                >
+              </p>
+
+              <a
+                href="https://drive.google.com/file/d/1wHMNyKMmaBQMXX17L_VlFVA4TvRcqrOy/view?usp=drive_link"
+                class="resume-btn"
+                target="_blank"
+              >
+                <i class="ri-article-line"></i> See Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Third Page: Resume Section -->
+      <section class="resume-section">
+        <img
+          src="resources/main bg 3.png"
+          class="resume-bg"
+          alt="Resume Background"
+        />
+
+        <div class="resume-overlay">
+          <div class="vertical-divider"></div>
+
+          <div class="resume-block">
+            <!-- Experience Section -->
+            <h2 class="section-title animated-heading">Experience</h2>
+            <div class="resume-grid">
+              <div class="resume-card">
+                <div class="entry-flex">
+                  <span class="icon">✦</span>
+                  <div class="entry-text">
+                    <p><strong>2024 (May–July)</strong></p>
+                    <p class="highlight">Frontend Developer</p>
+                    <p>Internship at Yelo-India</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="resume-card">
+                <div class="entry-flex">
+                  <span class="icon">✦</span>
+                  <div class="entry-text">
+                    <p><strong>2024 (Aug–Sep)</strong></p>
+                    <p class="highlight">Frontend Development</p>
+                    <p>YHills</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="resume-card">
+                <div class="entry-flex">
+                  <span class="icon">✦</span>
+                  <div class="entry-text">
+                    <p><strong>2024</strong></p>
+                    <p class="highlight">Brand Designer</p>
+                    <p>Serious Studio</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="resume-card">
+                <div class="entry-flex">
+                  <span class="icon">✦</span>
+                  <div class="entry-text">
+                    <p><strong>2023</strong></p>
+                    <p class="highlight">Freelance SIB Artist</p>
+                    <p>GIGIL Manila</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="string section-divider-svg">
+              <svg
+                viewBox="0 0 1000 200"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M 10 100 Q 500 100 990 100"
+                  stroke="#000"
+                  stroke-width="8"
+                  fill="transparent"
+                />
+              </svg>
+            </div>
+
+            <!-- Education Section -->
+            <h2 class="section-title animated-heading">Education</h2>
+            <div class="resume-grid">
+              <div class="resume-card">
+                <div class="entry-flex">
+                  <span class="icon">✦</span>
+                  <div class="entry-text">
+                    <p><strong>2022 – 2026</strong></p>
+                    <p class="highlight">SR Group of Institutions - Jhansi</p>
+                    <p>B.Tech<br />CSE</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="resume-card">
+                <div class="entry-flex">
+                  <span class="icon">✦</span>
+                  <div class="entry-text">
+                    <p><strong>2020 – 2022</strong></p>
+                    <p class="highlight">Mahatma Hansraj Modern School</p>
+                    <p>Intermediate<br />PCM (CBSE)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="string section-divider-svg">
+              <svg
+                viewBox="0 0 1000 200"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M 10 100 Q 500 100 990 100"
+                  stroke="#000"
+                  stroke-width="8"
+                  fill="transparent"
+                />
+              </svg>
+            </div>
+
+            <!-- Skills Section -->
+            <h2 class="section-title animated-heading">Skills</h2>
+            <div class="row">
+              <div class="column">
+                <p><span class="icon">✦</span> Frontend Developer</p>
+                <p><span class="icon">✦</span> Graphic Design</p>
+                <p><span class="icon">✦</span> Video Editing</p>
+                <p><span class="icon">✦</span> Social Media</p>
+              </div>
+              <div class="column">
+                <p><span class="icon">✦</span> Excel</p>
+                <p><span class="icon">✦</span> Figma</p>
+                <p><span class="icon">✦</span> Microsoft Office</p>
+                <p><span class="icon">✦</span> Communication</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fourth Page: THE GOLF CLUB-->
+      <section class="page4-container">
+        <div class="page4-semicircle"></div>
+        <!-- new semicircle bg -->
+        <div class="page4-small-circle"></div>
+
+        <!-- Section Number -->
+        <div class="page4-number">01</div>
+
+        <!-- LEFT: Image Grid -->
+        <div class="page4-image-column">
+          <div class="page4-top-row">
+            <img src="resources/golf(1).jpeg" alt="Top 1" />
+            <img src="resources/golf(2).jpeg" alt="Top 2" />
+            <img src="resources/golf(3).jpeg" alt="Top 3" />
+          </div>
+
+          <div class="page4-main-image">
+            <video
+              preload="metadata"
+              src="resources/golf vid.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+          </div>
+
+          <div class="page4-bottom-row">
+            <img src="resources/golf(4).jpeg" alt="Bottom 1" />
+            <img src="resources/golf(5).jpeg" alt="Bottom 2" />
+            <img src="resources/golf(6).jpeg" alt="Bottom 3" />
+          </div>
+        </div>
+
+        <!-- RIGHT: Text Content -->
+        <div class="page4-text-box">
+          <h2 class="page4-heading animated-heading">Sidcup Golf</h2>
+          <h2 class="page4-heading animated-heading">Website</h2>
+
+          <hr class="page4-line-top" />
+
+          <div class="page4-tags">
+            <div class="page4-tag">
+              <span class="page4-star">✦</span> HTML/CSS/JS
+            </div>
+            <div class="page4-tag"><span class="page4-star">✦</span> GSAP</div>
+          </div>
+
+          <hr class="page4-line-bottom" />
+
+          <p class="page4-description">
+            A fully responsive clone of the Sidcup Family<br />
+            Golf website built using HTML, CSS, JS, and GSAP.<br />
+            Recreated the original design with smooth<br />
+            animations & design to strengthen my frontend<br />
+            skills and user experience expertise..
+          </p>
+
+          <a
+            href="https://rashidx17.github.io/SIDCUP-FAMILY-GOLF-CLONE/"
+            class="resume-btn"
+            target="_blank"
+          >
+            <i class="ri-article-line"></i> Visit Website
+          </a>
+        </div>
+      </section>
+
+      <!-- Fifth Page: Scrolling Illustration Grid -->
+      <div class="wrapper-container">
+        <!-- LEFT SECTION -->
+        <section class="info-panel">
+          <div class="section-badge">02</div>
+
+          <div class="text-block">
+            <h2 class="title-highlight animated-heading">Graphic</h2>
+            <h2 class="title-highlight animated-heading">Design</h2>
+
+            <hr class="divider-top animate-line" />
+
+            <div class="skill-tags">
+              <div class="skill-chip">
+                <span class="icon-star">✦</span> Canva & ChatGPT
+              </div>
+              <div class="skill-chip">
+                <span class="icon-star">✦</span> Photography
+              </div>
+            </div>
+
+            <hr class="divider-bottom animate-line" />
+
+            <p class="project-summary">
+              A visual scroll gallery showcasing dynamic illustration columns.
+              <br />
+              Each column scrolls at a different speed <br />
+              to create an engaging motion experience.
+            </p>
+
+            <a
+              href="https://rashidx17.github.io/WORK-GALLERY/"
+              class="resume-btn"
+              target="_blank"
+            >
+              <i class="ri-article-line"></i> See More
+            </a>
+          </div>
+        </section>
+
+        <!-- RIGHT IMAGE SCROLLING -->
+        <div class="gallery-scroll">
+          <div class="image-column scroll-forward">
+            <div class="column-track">
+              <img src="Page 5/img (1).PNG" />
+              <img src="Page 5/img (2).PNG" />
+              <img src="Page 5/img (3).PNG" />
+              <img src="Page 5/img (4).PNG" />
+              <img src="Page 5/img (12).PNG" />
+              <img src="Page 5/img (6).PNG" />
+              <!-- DUPLICATE -->
+              <img src="Page 5/img (1).PNG" />
+              <img src="Page 5/img (2).PNG" />
+              <img src="Page 5/img (3).PNG" />
+              <img src="Page 5/img (4).PNG" />
+              <img src="Page 5/img (12).PNG" />
+              <img src="Page 5/img (6).PNG" />
+            </div>
+          </div>
+
+          <div class="image-column scroll-reverse">
+            <div class="column-track">
+              <img src="Page 5/img (7).PNG" />
+              <img src="Page 5/img (19).PNG" />
+              <img src="Page 5/img (22).PNG" />
+              <img src="Page 5/img (10).PNG" />
+              <img src="Page 5/img (11).PNG" />
+              <img src="Page 5/img (5).PNG" />
+              <!-- DUPLICATE -->
+              <img src="Page 5/img (7).PNG" />
+              <img src="Page 5/img (19).PNG" />
+              <img src="Page 5/img (22).PNG" />
+              <img src="Page 5/img (10).PNG" />
+              <img src="Page 5/img (11).PNG" />
+              <img src="Page 5/img (5).PNG" />
+            </div>
+          </div>
+
+          <div class="image-column scroll-forward">
+            <div class="column-track">
+              <img src="Page 5/img (13).PNG" />
+              <img src="Page 5/img (14).PNG" />
+              <img src="Page 5/img (15).PNG" />
+              <img src="Page 5/img (16).PNG" />
+              <img src="Page 5/img (17).PNG" />
+              <img src="Page 5/img (18).PNG" />
+              <!-- DUPLICATE -->
+              <img src="Page 5/img (13).PNG" />
+              <img src="Page 5/img (14).PNG" />
+              <img src="Page 5/img (15).PNG" />
+              <img src="Page 5/img (16).PNG" />
+              <img src="Page 5/img (17).PNG" />
+              <img src="Page 5/img (18).PNG" />
+            </div>
+          </div>
+
+          <div class="image-column scroll-reverse">
+            <div class="column-track">
+              <img src="Page 5/img (8).PNG" />
+              <img src="Page 5/img (9).PNG" />
+              <img src="Page 5/img (21).PNG" />
+              <img src="Page 5/img (20).PNG" />
+              <img src="Page 5/img (23).PNG" />
+              <img src="Page 5/img (24).PNG" />
+              <!-- DUPLICATE -->
+              <img src="Page 5/img (8).PNG" />
+              <img src="Page 5/img (9).PNG" />
+              <img src="Page 5/img (21).PNG" />
+              <img src="Page 5/img (20).PNG" />
+              <img src="Page 5/img (23).PNG" />
+              <img src="Page 5/img (24).PNG" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 6: PortfolioHub Showcase -->
+      <section class="page6-container">
+        <div class="page6-semicircle"></div>
+        <!-- new semicircle bg -->
+        <div class="page6-small-circle"></div>
+
+        <!-- Section Number -->
+        <div class="page6-number">03</div>
+
+        <!-- LEFT: New Image Grid Layout -->
+        <div class="page6-image-column">
+          <!-- Small Images Grid -->
+          <div class="page6-small-grid">
+            <img src="resources/port (1).jpg" alt="Small 1" />
+            <img src="resources/port (2).jpg" alt="Small 2" />
+            <img src="resources/port (3).jpg" alt="Small 3" />
+            <img src="resources/port (4).jpg" alt="Small 4" />
+            <img src="resources/port (5).jpg" alt="Small 5" />
+            <img src="resources/port (6).jpg" alt="Small 6" />
+          </div>
+
+          <!-- Large Main Image -->
+          <div class="page6-large-column">
+            <img src="resources/port large.jpeg" alt="Large 1" />
+            <img src="resources/port large (2).jpeg" alt="Large 2" />
+          </div>
+        </div>
+
+        <!-- RIGHT: Text Content -->
+        <div class="page6-text-box">
+          <h2 class="page6-heading animated-heading">PortfolioHub</h2>
+          <h2 class="page6-heading animated-heading">Website</h2>
+
+          <hr class="page4-line-top" />
+
+          <div class="page6-tags">
+            <div class="page6-tag">
+              <span class="page6-star">✦</span> HTML/CSS/JS
+            </div>
+            <div class="page6-tag"><span class="page6-star">✦</span> AOS</div>
+          </div>
+
+          <hr class="page6-line-bottom" />
+
+          <p class="page6-description">
+            PortfolioHub is a modern, easy-to-use platform <br />
+            for students to showcase their work. <br />
+            It helps you build a clean, professional <br />
+            online presence—no coding needed.
+          </p>
+
+          <a
+            href="https://rashidx17.github.io/PORTFOLIO-HUB/"
+            class="resume-btn"
+            target="_blank"
+          >
+            <i class="ri-article-line"></i> Visit Website
+          </a>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section class="contact-section">
+        <!-- Background image (left) -->
+        <div class="background">
+          <img src="resources/main bg.png" alt="Main Background" />
+        </div>
+
+        <!-- Content wrapper (same pattern as Page 1) -->
+        <div class="content">
+          <div class="contact-box">
+            <h1 class="contact-heading animated-heading">Contact Me</h1>
+
+            <div class="contact-content">
+              <h3 class="contact-subtitle-bold">Send a Message</h3>
+              <p class="contact-subtitle">
+                Let’s connect and create something impactful together.
+              </p>
+
+              <form
+                class="contact-form"
+                action="https://formspree.io/f/mpwjzjnp"
+                method="POST"
+              >
+                <div class="form-row">
+                  <input type="text" name="name" placeholder="Name" required />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                  />
+                </div>
+                <div class="form-row">
+                  <input type="text" name="subject" placeholder="Subject" />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    pattern="[0-9]{10}"
+                    inputmode="numeric"
+                    maxlength="10"
+                    required
+                  />
+                </div>
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  rows="5"
+                  required
+                ></textarea>
+                <div class="form-submit">
+                  <button type="submit" class="contact-submit-btn">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"
+    ></script>
+    <!-- before your script.js (add) -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"
+    ></script>
+
+    <script defer src="script.js"></script>
+  </body>
+</html>
